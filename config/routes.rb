@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+
   resources :dog_meetups
+
+  resources :comments
+
+  resources :dogs
+
   resources :owners
 
   resources :meetups
