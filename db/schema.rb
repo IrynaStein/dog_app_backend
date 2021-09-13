@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_182558) do
+
+ActiveRecord::Schema.define(version: 2021_09_13_182759) do
 
   create_table "comments", force: :cascade do |t|
     t.string "comments"
     t.integer "like"
     t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false 
+  end
+
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.string "breed"
+    t.integer "age"
+    t.text "bio"
+    t.integer "owner_id"
+    t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_dogs_on_owner_id"
   end
 
   create_table "meetups", force: :cascade do |t|
@@ -24,6 +36,17 @@ ActiveRecord::Schema.define(version: 2021_09_13_182558) do
     t.string "location"
     t.string "host"
     t.string "decription"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
